@@ -7,10 +7,13 @@ GAUEndpoint = "https://prod-41.eastus.logic.azure.com/workflows/61dfe2688efe41b1
 GIUEndpoint1 = "https://prod-00.eastus.logic.azure.com/workflows/02983e9ad1ef4f9bbd45f22654df1e66/triggers/manual/paths/invoke/restapi/v1/pokedex/"
 GIUEndpoint2 = "?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=N6jKWai_7ueKZybKqWpc3nEa8bi4PP7bmj8eGZILH1I"
 BLOB_ACCOUNT = "https://pokedexblobstore.blob.core.windows.net";
+UIPEndpoint1 = "https://prod-27.eastus.logic.azure.com/workflows/5fbe1593409c4d41a261b2057a329d21/triggers/manual/paths/invoke/restapi/v1/pokedex/";
+UIPEndpoint2 = "?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=4yYr3XYfddMc7KKT8zCpwdqXiX30uS5EnjyEg_yEFkI";
 
 
 
 Authcache = localStorage.getItem("UserData")
+var clickedPokemonId
 
 
 //Handlers for button clicks
@@ -108,6 +111,7 @@ function submitNewAsset(){
   
    //Post the form data to the endpoint, note the need to set the content type header
    $.ajax({
+    
    url: IUPS,
    data: submitData,
    cache: false,
@@ -144,8 +148,9 @@ function getImages() {
       pokemon.push("pokemonSpecies : " + val["pokemonspecies"] + "<br />");
 
       if (localStorage.getItem("UserData") != "guest"){
+        BLOBID = val["id"]
         pokemon.push('<button type="button" class="btn btn-danger" onclick="deletePokemon(\'' + val["id"] + '\')">Delete</button> <br/><br/>');
-        pokemon.push('<button type="button" class="btn btn-primary" onclick="editPokemon(\'' + val["id"] + '\')">Edit</button> <br/><br/>');
+        pokemon.push('<button type="button" class="btn btn-primary" onclick="showEditForm(\'' + val["id"] + '\')">Edit</button> <br/><br/>');
       }
     });
 
@@ -159,6 +164,12 @@ function getImages() {
     }).appendTo("#ImageList");
   });
 }
+
+function showEditForm(id) {
+  clickedPokemonId = id;
+  $('#editModal').modal('show');
+}
+
 function deletePokemon(id) {
   console.log(id);
   $.ajax({
@@ -170,8 +181,7 @@ function deletePokemon(id) {
   });
 }
 
-function submitNewAsset(){
-
+function editPokemon(){
   $.getJSON(GAUEndpoint, function (data) {
     // Create an array to hold all the retrieved assets
     var items = [];
@@ -211,26 +221,23 @@ function submitNewAsset(){
             // Use 'data' instead of 'msg' and 'val'
             UserName = atob(data["username"]);
             //Create a form data object
-   submitData = new FormData();
+   editedPokemon = new FormData();
    //Get form variables and append them to the form data object
-   submitData.append('FileName', $('#fileName').val());
-   submitData.append('username', UserName);
-   submitData.append('pokemonID', $('#pokemonid').val());
-   submitData.append('pokemonName', $('#pokemonname').val());
-   submitData.append('pokemonType', $('#pokemontype').val());
-   submitData.append('pokemonSpecies', $('#pokemonspecies').val());
-   submitData.append('File', $("#UpFile")[0].files[0]);
-
+   editedPokemon.append('username', "Edited by: "+ UserName);
+   editedPokemon.append('editpokemonid', $('#editpokemonid').val());
+   editedPokemon.append('editpokemonname', $('#editpokemonname').val());
+   editedPokemon.append('editpokemontype', $('#editpokemontype').val());
+   editedPokemon.append('editpokemonspecies', $('#editpokemonspecies').val());
   
    //Post the form data to the endpoint, note the need to set the content type header
    $.ajax({
-   url: IUPS,
-   data: submitData,
+    url: UIPEndpoint1 + clickedPokemonId + UIPEndpoint2,
+   data: editedPokemon,
    cache: false,
    enctype: 'multipart/form-data',
    contentType: false,
    processData: false,
-   type: 'POST',
+   type: 'PATCH',
    success: function(data){
   
    }

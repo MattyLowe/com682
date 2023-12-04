@@ -14,8 +14,6 @@ function validateForm(){
         });
         ids.push(val["ID"])
 
-        console.log(items);
-        console.log(accountdata);
 
         if(items.includes(accountdata)){
             localStorage.setItem("UserData", accountdata)

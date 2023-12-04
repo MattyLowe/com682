@@ -38,7 +38,6 @@ $(document).ready(function () {
                 items.push("Account Creation Date: " + `${date.getMonth() + 1}/${date.getDate()}/${(date.getFullYear() % 100).toString().padStart(2, '0')}`+ "<br />");
                 items.push("Email: " +data["email"] + "<br />");
                 items.push("Username: " +atob(val["username"]) + "<br />");
-                items.push("Password: " +val["password"] + "<br />"+"<hr />");
       items.push('<button type="button" id="subNewForm" class="btn btn-danger" onclick="deleteAccount('+val["ID"]
       +')">Delete</button> <br/><br/>');
       items.push("<hr />");

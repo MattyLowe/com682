@@ -101,7 +101,7 @@ function submitNewAsset(){
    submitData = new FormData();
    //Get form variables and append them to the form data object
    submitData.append('FileName', $('#fileName').val());
-   submitData.append('username', UserName);
+   submitData.append('username', "Uploaded by: "+ UserName);
    submitData.append('pokemonID', $('#pokemonid').val());
    submitData.append('pokemonName', $('#pokemonname').val());
    submitData.append('pokemonType', $('#pokemontype').val());
@@ -141,7 +141,7 @@ function getImages() {
     $.each(data, function(key, val) {
       pokemon.push("<hr />");
       pokemon.push("<img src='" + BLOB_ACCOUNT + val["filePath"] + "' width='400'/> <br/>");
-      pokemon.push("Uploaded By : " + val["username"] + "<br />");
+      pokemon.push(val["username"] + "<br />");
       pokemon.push("pokemonID : " + val["pokemonid"] + "<br />");
       pokemon.push("pokemonName : " + val["pokemonname"] + "<br />");
       pokemon.push("pokemonType : " + val["pokemontype"] + "<br />");
@@ -169,6 +169,11 @@ function showEditForm(id) {
   clickedPokemonId = id;
   $('#editModal').modal('show');
 }
+
+function hideEditForm() {
+  $('#editModal').modal('hide');
+}
+
 
 function deletePokemon(id) {
   console.log(id);
@@ -224,12 +229,13 @@ function editPokemon(){
    editedPokemon = new FormData();
    //Get form variables and append them to the form data object
    editedPokemon.append('username', "Edited by: "+ UserName);
-   editedPokemon.append('editpokemonid', $('#editpokemonid').val());
-   editedPokemon.append('editpokemonname', $('#editpokemonname').val());
-   editedPokemon.append('editpokemontype', $('#editpokemontype').val());
-   editedPokemon.append('editpokemonspecies', $('#editpokemonspecies').val());
+   editedPokemon.append('pokemonid', $('#editpokemonid').val());
+   editedPokemon.append('pokemonname', $('#editpokemonname').val());
+   editedPokemon.append('pokemontype', $('#editpokemontype').val());
+   editedPokemon.append('pokemonspecies', $('#editpokemonspecies').val());
   
    //Post the form data to the endpoint, note the need to set the content type header
+   console.log(editedPokemon)
    $.ajax({
     url: UIPEndpoint1 + clickedPokemonId + UIPEndpoint2,
    data: editedPokemon,

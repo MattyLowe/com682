@@ -69,6 +69,40 @@
     </div>
   </div>
   
+  <div id="editModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="hideEditForm()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Add the edit form content here -->
+          <form id="editAccountForm">
+
+            <div class="mb-3">
+              <label for="editusername" class="form-label">New or Existing Username</label>
+              <input type="text" class="form-control" id="editusername">
+            </div>
+
+            <div class="mb-3">
+              <label for="editpassword" class="form-label">New or Existing Password</label>
+              <input type="text" class="form-control" id="editpassword">
+            </div>
+
+            <div class="mb-3">
+              <label for="editemail" class="form-label">New or Existing Email</label>
+              <input type="text" class="form-control" id="editemail">
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="editAccount()">Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Add any necessary scripts or jQuery here -->
 

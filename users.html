@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Dashboard">
+<head>
+  <meta charset="UTF-8">
+  <title>User Lookup</title>
+  <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+  <script type="text/javascript" src="JS/bootstrap.js"></script>
+  <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="JS/users.js"></script> <!-- Assuming you have a user-related script -->
+
+  <style>
+    /* Style the navigation bar */
+    ul.navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    ul.navbar li {
+      display: inline;
+    }
+
+    ul.navbar li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    ul.navbar li a:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your navigation bar -->
+  <ul class="navbar">
+    <li><a href="pokedex.html">Pokedex</a></li>
+    <li><a href="users.html">User Lookup</a></li>
+    <li><a href="account.html">My Account</a></li>
+    <button id="logout" type="button" class="btn btn-primary">Logout</button>
+  </ul>
+  
+  <div class="container">
+    <!-- Header -->
+    <div class="row align-items-start">
+      <div class="col-2"></div>
+      <div class="col-8" style="text-align: center;">
+        <h3>User Lookup</h3>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  
+    <!-- User Details Area -->
+    <div class="row align-items-start">
+      <div class="col-2"></div>
+      <div class="col-8" style="text-align: left;">
+        <div id="userDetails">
+          <h4>User details will be displayed here after lookup.</h4>
+          <!-- Add user details content here -->
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+
+</body>
+</html>

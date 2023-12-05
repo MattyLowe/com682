@@ -36,7 +36,7 @@ $(document).ready(function () {
                 items.push("Account ID: "+val["ID"] + "<br />")
                 var date = new Date(val["ID"] * 1000);
                 items.push("Account Creation Date: " + `${date.getMonth() + 1}/${date.getDate()}/${(date.getFullYear() % 100).toString().padStart(2, '0')}`+ "<br />");
-                items.push("Email: " +data["email"] + "<br />");
+                items.push("Email: " +val["email"] + "<br />");
                 items.push("Username: " +atob(val["username"]) + "<br />");
       items.push('<button type="button" id="subNewForm" class="btn btn-danger" onclick="deleteAccount('+val["ID"]
       +')">Delete</button> <br/><br/>');

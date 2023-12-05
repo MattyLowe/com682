@@ -76,7 +76,6 @@ function getMyAccount(){
                 userAccount.push('<button type="button" id="subNewForm" class="btn btn-primary" onclick="showEditForm(\'' + data["ID"] + '\')">Edit</button>');
                 userAccount.push('<button type="button" id="subNewForm" class="btn btn-danger" onclick="deleteAccount('+data["ID"]
                 +')">Delete</button> <br/><br/>');
-                console.log("yeeeee")
                 userAccount.push("<hr />");
                 $("<ul/>", {
                     "class": "my-new-list",
@@ -107,7 +106,6 @@ function getNewAccount(){
         userAccount.push('<button type="button" id="subNewForm" class="btn btn-primary" onclick="showEditForm(\'' + data["ID"] + '\')">Edit</button>');
         userAccount.push('<button type="button" id="subNewForm" class="btn btn-danger" onclick="deleteAccount('+data["ID"]
         +')">Delete</button> <br/><br/>');
-        console.log("yeeeee")
         userAccount.push("<hr />");
         $("<ul/>", {
             "class": "my-new-list",

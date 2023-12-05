@@ -135,7 +135,6 @@ function getImages() {
   $.getJSON(RAI, function(data) {
     // Create an array to hold all the retrieved assets
     var pokemon = [];
-    console.log(data);
 
     // Iterate through the returned records and build HTML, incorporating the key values of the record in the data
     $.each(data, function(key, val) {
@@ -176,7 +175,6 @@ function hideEditForm() {
 
 
 function deletePokemon(id) {
-  console.log(id);
   $.ajax({
     type: "DELETE",
     url: DIP1 + id + DIP2
@@ -235,7 +233,6 @@ function editPokemon(){
    editedPokemon.append('pokemonspecies', $('#editpokemonspecies').val());
   
    //Post the form data to the endpoint, note the need to set the content type header
-   console.log(editedPokemon)
    $.ajax({
     url: UIPEndpoint1 + clickedPokemonId + UIPEndpoint2,
    data: editedPokemon,

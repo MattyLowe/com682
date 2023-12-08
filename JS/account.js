@@ -144,7 +144,7 @@ function showEditForm(id) {
     var subObj = {
         username: btoa($('#editusername').val()),
         password: btoa($('#editusername').val()),
-        email:    $('#editusername').val(),
+        email:    $('#editemail').val(),
     };
 
     // Convert to a JSON String

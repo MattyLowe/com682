@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Dashboard">
+<head>
+  <meta charset="UTF-8">
+  <title>Asset Track</title>
+  <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+  <script type="text/javascript" src="JS/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="JS/bootstrap.bundle.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Style the navbar */
+    ul.navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    ul.navbar li {
+      display: inline;
+    }
+
+    ul.navbar li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    ul.navbar li a:hover {
+      background-color: #555;
+    }
+
+    /* Style the iframe container */
+    .iframe-container {
+      text-align: center;
+      margin-top: 20px; /* Adjust spacing */
+      border: 2px solid #333; /* Same color as the navbar */
+      border-radius: 8px; /* Optional: Rounded corners */
+      overflow: hidden; /* Optional: Hide border overflow */
+    }
+
+    .iframe-container iframe {
+      width: 50%; /* Adjust width as needed (half of the container width) */
+      max-width: 400px; /* Set a maximum width if desired */
+      height: 700px; /* Keep the same height */
+      max-height: 700px;
+      border: none; /* Remove iframe border */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Your jQuery navigation bar -->
+  <ul class="navbar">
+    <li><a href="pokedex.html">Pokedex</a></li>
+    <li><a href="users.html">User Accounts</a></li>
+    <li><a href="account.html">My Account</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <button id="logout" type="button" class="btn btn-primary">Logout</button>
+  </ul>
+
+  <!-- Container for the iframe -->
+  <div class="iframe-container">
+    <iframe src="https://webchat.botframework.com/embed/PokedexQuestions-bot?s=Q6TtgxCyT7o.fOssxUkfmrPCEZ3TVKj56iK5xV20rh7o2SCuzCQlTqM"></iframe>
+  </div>
+
+</body>
+</html>

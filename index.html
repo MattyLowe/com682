@@ -43,9 +43,48 @@
         }
     </style>
 </head>
+
+<style>
+    /* Style the navigation bar */
+    ul.navbar {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      text-align: center;
+    }
+
+    ul.navbar h2 {
+      color: white;
+      width: 100%; /* Ensure the text takes up the full width */
+    }
+
+    ul.navbar li {
+      display: inline;
+    }
+
+    ul.navbar li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    ul.navbar li a:hover {
+      background-color: #555;
+    }
+</style>
+</head>
+
+<!-- Your jQuery navigation bar -->
+<ul class="navbar">
+    <h2>The Pokedex</h2>
+</ul>
 <body>
 
-    <h2>The Pokedex</h2>
+    
 
     <form id="signInForm">
         <label for="username">Username:</label>
